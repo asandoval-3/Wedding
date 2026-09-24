@@ -18,8 +18,9 @@ Live site (once GitHub Pages is on): https://asandoval-3.github.io/Wedding/
 
 ## Design decisions (so far)
 
-- **Design:** "Envelope & Wax Seal". Sage background, champagne envelope, terracotta wax seal with "A&J".
-- **Sandia Mountains:** the ridge along the bottom is the Sandias at dusk in their "watermelon" dusty-rose glow, with terracotta foothills, sage in front, and a champagne moon rising over the crest. A small ridge line also divides the card.
+- **Design:** "Envelope & Wax Seal". Sunset-sky background, champagne envelope, terracotta wax seal with "A&J".
+- **Sandia Mountains at sunset:** the sky fades from deep sage overhead to terracotta and dusty rose at the horizon, with the Sandia ridge in sage silhouette and a champagne moon rising over the crest. A small ridge line also divides the card.
+- **Balloon Fiesta:** four small hot air balloons in terracotta, dusty rose, champagne and sage float gently around the envelope.
 - **Palette:** mostly sage `#8A9A7B` / `#5F6F52` and terracotta `#AD5433`, with dusty rose `#D4A09A`, champagne `#EAD9B8`, and ivory `#FBF7EF` as accents.
 - **Accessibility:** text contrast ≥ 4.5:1, 44px tap targets, visible keyboard focus, reduced-motion support.
 - **Fonts (Google Fonts):** Pinyon Script (names), Cormorant Garamond (body), Jost (small caps labels).

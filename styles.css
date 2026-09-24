@@ -17,12 +17,12 @@
 
 * { box-sizing: border-box; margin: 0; }
 
-html { -webkit-text-size-adjust: 100%; background: #52614A; }
+html { -webkit-text-size-adjust: 100%; background: #3F4B37; }
 
 body {
   min-height: 100vh;
   min-height: 100svh;
-  background: radial-gradient(circle at 30% 0, #6A7A5D, var(--sage-bg) 60vh, #52614A 140vh) #52614A no-repeat;
+  background: #3F4B37;
   color: var(--ink);
   font-family: var(--serif);
   text-align: center;
@@ -35,7 +35,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
 }
 
@@ -61,8 +61,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .lang span { padding-bottom: 2px; border-bottom: 1px solid transparent; }
 .lang span.active { font-weight: 400; border-bottom-color: #fff; }
 
-/* ---------- Sandia Mountains ---------- */
+/* ---------- Sunset sky, Sandia Mountains, balloons ---------- */
 :root { --mtn-h: clamp(140px, 15.9vw, 300px); }
+
+/* Deep sage overhead, warming to terracotta and dusty rose at the horizon.
+   Text sits in the upper part of the screen, where white stays above 4.5:1. */
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    #4F5E45 0%, #5F6F52 55%, #7A7358 66%, #B98A74 80%, #D19C8C 92%, #DDA99B 100%);
+}
+
 .mountains {
   position: fixed;
   left: 0;
@@ -72,6 +84,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   z-index: 0;
   pointer-events: none;
 }
+
+.balloons { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.b { position: absolute; display: block; animation: float 7s ease-in-out infinite; }
+.b svg { display: block; width: 100%; height: auto; }
+.b1 { width: 34px; left: 18px; top: 74px; }
+.b2 { width: 24px; right: 26px; top: 128px; animation-delay: -2s; }
+.b3 { width: 22px; right: 40px; bottom: calc(var(--mtn-h) + 24px); animation-delay: -4s; }
+.b4 { width: 16px; left: 34px; bottom: calc(var(--mtn-h) + 60px); animation-delay: -1s; }
+@media (min-width: 900px) {
+  .b1 { width: 64px; left: 12vw; top: 18vh; }
+  .b2 { width: 44px; right: 14vw; top: 12vh; }
+  .b3 { width: 38px; right: 20vw; bottom: calc(var(--mtn-h) + 70px); }
+  .b4 { width: 28px; left: 22vw; bottom: calc(var(--mtn-h) + 120px); }
+}
+@keyframes float { 50% { transform: translateY(-10px); } }
 
 /* ---------- Step 1: envelope scene ---------- */
 .scene {
@@ -373,6 +400,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-family: var(--sans);
   font-size: 12px;
   letter-spacing: .2em;
+  background: rgba(63,75,55,.85);
+  border-radius: 99px;
   color: #fff;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -380,7 +409,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   align-items: center;
   gap: 8px;
   min-height: 44px;
-  padding: 8px 12px;
+  padding: 8px 18px;
 }
 .replay svg { width: 14px; height: 14px; flex: none; }
 
@@ -389,7 +418,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .btn:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; }
 
 .credit {
-  margin-top: 6px;
+  display: table;
+  margin: 10px auto 0;
+  padding: 6px 14px;
+  background: rgba(63,75,55,.85);
+  border-radius: 99px;
   font-family: var(--sans);
   font-weight: 300;
   font-size: 12px;
