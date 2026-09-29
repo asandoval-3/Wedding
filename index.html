@@ -111,8 +111,7 @@
 
         <section class="travel" aria-labelledby="travel-title">
           <p class="label" id="travel-title" data-i18n="travelTitle">Traveling in?</p>
-          <p class="travel__text"><strong data-i18n="laborDay">It's Labor Day weekend.</strong> <span data-i18n="travelText">Flights and hotels fill up fast, so book early. Fly into the Albuquerque International Sunport (ABQ).</span></p>
-          <p class="travel__soon" data-i18n="hotelsSoon">Hotel details coming soon.</p>
+          <p class="travel__text"><strong data-i18n="laborDay">It's Labor Day weekend.</strong> <span data-i18n="travelText">Flights and hotels fill up fast, so book early.</span></p>
         </section>
 
         <p class="formal" data-i18n="formal">Formal invitation to follow</p>
@@ -131,12 +130,9 @@
             </div>
             <div class="field">
               <label for="f-line1" data-i18n="fLine1">Street address</label>
-              <input id="f-line1" name="line1" autocomplete="address-line1" required aria-describedby="f-line1-err">
+              <input id="f-line1" name="line1" autocomplete="street-address" required aria-describedby="f-line1-hint f-line1-err">
+              <small id="f-line1-hint" class="hint" data-i18n="fLine1Hint">Include your apt or unit number, if you have one</small>
               <small id="f-line1-err" class="error" hidden></small>
-            </div>
-            <div class="field">
-              <label for="f-line2"><span data-i18n="fLine2">Apt, suite, unit</span> <em data-i18n="optional">(optional)</em></label>
-              <input id="f-line2" name="line2" autocomplete="address-line2">
             </div>
             <div class="field-row">
               <div class="field">
@@ -154,19 +150,6 @@
                 <input id="f-zip" name="zip" autocomplete="postal-code" inputmode="numeric" required aria-describedby="f-zip-err">
                 <small id="f-zip-err" class="error" hidden></small>
               </div>
-            </div>
-            <div class="field">
-              <label for="f-country" data-i18n="fCountry">Country</label>
-              <input id="f-country" name="country" autocomplete="country-name" value="United States">
-            </div>
-            <div class="field">
-              <label for="f-email"><span data-i18n="fEmail">Email</span> <em data-i18n="optional">(optional)</em></label>
-              <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="f-email-err">
-              <small id="f-email-err" class="error" hidden></small>
-            </div>
-            <div class="field">
-              <label for="f-phone"><span data-i18n="fPhone">Phone</span> <em data-i18n="optional">(optional)</em></label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
             </div>
             <button class="btn btn--fill btn--wide" id="address-submit" type="submit" data-i18n="fSubmit">Send my address</button>
             <p class="form-status" id="address-status" role="status" aria-live="polite"></p>

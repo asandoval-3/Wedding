@@ -7,20 +7,15 @@
 
   // Mailing-address form -> Google Form.
   // Paste your Google Form's "formResponse" address and each question's entry number here.
-  // Until `action` is filled in, the address section stays hidden.
+  // If `action` is ever emptied, the address section hides itself.
   var ADDRESS_FORM = {
-    action: '', // e.g. 'https://docs.google.com/forms/d/e/XXXXXXXX/formResponse'
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSfYQpPWRC9BMNUEjPjMOm5BNABCINFlilndiZNV9VRPvHewXA/formResponse',
     fields: {
-      name: '',    // e.g. 'entry.123456789'
-      line1: '',
-      line2: '',
-      city: '',
-      state: '',
-      zip: '',
-      country: '',
-      email: '',
-      phone: '',
-      language: '' // optional: records whether they used English or Spanish
+      name: 'entry.588752495',
+      line1: 'entry.508237800',
+      city: 'entry.1570830363',
+      state: 'entry.1521736930',
+      zip: 'entry.1155542427'
     }
   };
 
@@ -46,22 +41,18 @@
       eventDetails: 'Save the date! Formal invitation to follow. ' + SITE_URL,
       travelTitle: 'Traveling in?',
       laborDay: "It's Labor Day weekend.",
-      travelText: 'Flights and hotels fill up fast, so book early. Fly into the Albuquerque International Sunport (ABQ).',
-      hotelsSoon: 'Hotel details coming soon.',
+      travelText: 'Flights and hotels fill up fast, so book early.',
       addressTitle: 'Where should we mail it?',
       addressIntro: 'Share your mailing address so your invitation finds you.',
       addressOpen: 'Share my address',
       fName: 'Name(s) for the envelope',
       fNameHint: 'e.g. Maria & Jose Garcia, or The Garcia Family',
       fLine1: 'Street address',
-      fLine2: 'Apt, suite, unit',
-      optional: '(optional)',
+      fLine1Hint: 'Include your apt or unit number, if you have one',
       fCity: 'City', fState: 'State', fZip: 'ZIP',
-      fCountry: 'Country', fEmail: 'Email', fPhone: 'Phone',
       fSubmit: 'Send my address',
       fSending: 'Sending…',
       fRequired: 'Please fill this in.',
-      fEmailBad: 'Please check this email address.',
       fFailed: "That didn't go through. Please check your connection and try again.",
       fThanks: 'Thank you! Your invitation will find its way to you.'
     },
@@ -86,22 +77,18 @@
       eventDetails: '¡Reserva la fecha! La invitación formal llegará pronto. ' + SITE_URL,
       travelTitle: '¿Vienes de fuera?',
       laborDay: 'Es el fin de semana del Día del Trabajo.',
-      travelText: 'Los vuelos y hoteles se llenan rápido, así que reserva con tiempo. Vuela al Aeropuerto Internacional Sunport de Albuquerque (ABQ).',
-      hotelsSoon: 'Pronto compartiremos detalles de hoteles.',
+      travelText: 'Los vuelos y hoteles se llenan rápido, así que reserva con tiempo.',
       addressTitle: '¿A dónde te la enviamos?',
       addressIntro: 'Compártenos tu dirección postal para que tu invitación te llegue.',
       addressOpen: 'Compartir mi dirección',
       fName: 'Nombre(s) para el sobre',
       fNameHint: 'p. ej. María y José García, o Familia García',
       fLine1: 'Calle y número',
-      fLine2: 'Depto., interior, unidad',
-      optional: '(opcional)',
+      fLine1Hint: 'Incluye tu número de departamento o interior, si tienes',
       fCity: 'Ciudad', fState: 'Estado', fZip: 'Código postal',
-      fCountry: 'País', fEmail: 'Correo electrónico', fPhone: 'Teléfono',
       fSubmit: 'Enviar mi dirección',
       fSending: 'Enviando…',
       fRequired: 'Por favor llena este campo.',
-      fEmailBad: 'Por favor revisa este correo electrónico.',
       fFailed: 'No se pudo enviar. Revisa tu conexión e intenta de nuevo.',
       fThanks: '¡Gracias! Tu invitación llegará a tus manos.'
     }
@@ -251,7 +238,6 @@
     form.querySelectorAll('input').forEach(function (input) {
       var v = input.value.trim(), msg = '';
       if (input.required && !v) msg = t.fRequired;
-      else if (input.type === 'email' && v && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) msg = t.fEmailBad;
       setError(input, msg);
       if (msg && !firstBad) firstBad = input;
     });
@@ -268,7 +254,7 @@
     Object.keys(ADDRESS_FORM.fields).forEach(function (key) {
       var entry = ADDRESS_FORM.fields[key];
       if (!entry) return;
-      var value = key === 'language' ? (lang === 'es' ? 'Español' : 'English') : (form.elements[key] ? form.elements[key].value.trim() : '');
+      var value = form.elements[key] ? form.elements[key].value.trim() : '';
       body.append(entry, value);
     });
     submit.disabled = true;

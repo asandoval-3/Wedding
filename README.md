@@ -33,7 +33,7 @@ Live site (once GitHub Pages is on): https://asandoval-3.github.io/Wedding/
 
 The card has a "Share my address" form. Answers go to a Google Form you own, which saves them in a Google Sheet. The form stays hidden until it's connected:
 
-1. At forms.google.com, create a form with these **Short answer** questions: Name(s), Street address, Apt/unit, City, State, ZIP, Country, Email, Phone, Language.
+1. At forms.google.com, create a form with these **Short answer** questions: Name(s), Street address, City, State, ZIP.
 2. Menu (⋮) → **Get pre-filled link** → type anything in every box → **Get link** → **Copy link**.
 3. In `script.js`, fill in `ADDRESS_FORM`: `action` is the form address ending in `/formResponse` (replace `/viewform…`), and each field is its `entry.#########` number from that link.
 4. In the form's **Responses** tab, click **Link to Sheets** to collect the answers in a spreadsheet.
