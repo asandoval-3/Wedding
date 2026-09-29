@@ -29,6 +29,17 @@ Live site (once GitHub Pages is on): https://asandoval-3.github.io/Wedding/
 - **Ceremony time:** not decided yet. Calendar event is **all-day**, and the countdown runs to midnight on Sept 4.
 - **Wording:** "Save the Date / Reserva la Fecha", "are getting married / ¡nos casamos!", "Formal invitation to follow / La invitación formal llegará pronto".
 
+## Mailing-address form (Google Form)
+
+The card has a "Share my address" form. Answers go to a Google Form you own, which saves them in a Google Sheet. The form stays hidden until it's connected:
+
+1. At forms.google.com, create a form with these **Short answer** questions: Name(s), Street address, Apt/unit, City, State, ZIP, Country, Email, Phone, Language.
+2. Menu (⋮) → **Get pre-filled link** → type anything in every box → **Get link** → **Copy link**.
+3. In `script.js`, fill in `ADDRESS_FORM`: `action` is the form address ending in `/formResponse` (replace `/viewform…`), and each field is its `entry.#########` number from that link.
+4. In the form's **Responses** tab, click **Link to Sheets** to collect the answers in a spreadsheet.
+
+The page also tells search engines not to list it (`noindex`), so only people with the link find it.
+
 ## Updating later
 
 - **Ceremony time known?** In `script.js`, change `2027-09-04T00:00:00-06:00` to the time (e.g. `2027-09-04T16:30:00-06:00`). To make the calendar event timed instead of all-day, update the dates in `script.js` (Google/Outlook links) and `save-the-date.ics`.

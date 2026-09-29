@@ -6,6 +6,7 @@
   <title>Alejandro &amp; Jacqueline · Save the Date</title>
   <meta name="description" content="Save the date! Alejandro &amp; Jacqueline are getting married on September 4, 2027 in Albuquerque, New Mexico.">
   <meta name="author" content="Alejandro Sandoval">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#4F5E45">
 
   <!-- Link preview (texts, iMessage, WhatsApp, Facebook, etc.) -->
@@ -108,7 +109,71 @@
           <a class="btn" id="cal-outlook" target="_blank" rel="noopener">Outlook</a>
         </div>
 
+        <section class="travel" aria-labelledby="travel-title">
+          <p class="label" id="travel-title" data-i18n="travelTitle">Traveling in?</p>
+          <p class="travel__text"><strong data-i18n="laborDay">It's Labor Day weekend.</strong> <span data-i18n="travelText">Flights and hotels fill up fast, so book early. Fly into the Albuquerque International Sunport (ABQ).</span></p>
+          <p class="travel__soon" data-i18n="hotelsSoon">Hotel details coming soon.</p>
+        </section>
+
         <p class="formal" data-i18n="formal">Formal invitation to follow</p>
+
+        <section class="address" id="address" aria-labelledby="address-title" hidden>
+          <p class="label" id="address-title" data-i18n="addressTitle">Where should we mail it?</p>
+          <p class="address__intro" data-i18n="addressIntro">Share your mailing address so your invitation finds you.</p>
+          <button class="btn btn--fill" id="address-open" type="button" aria-expanded="false" aria-controls="address-form" data-i18n="addressOpen">Share my address</button>
+
+          <form class="address__form" id="address-form" novalidate hidden>
+            <div class="field">
+              <label for="f-name" data-i18n="fName">Name(s) for the envelope</label>
+              <input id="f-name" name="name" autocomplete="name" required aria-describedby="f-name-hint f-name-err">
+              <small id="f-name-hint" class="hint" data-i18n="fNameHint">e.g. Maria &amp; Jose Garcia, or The Garcia Family</small>
+              <small id="f-name-err" class="error" hidden></small>
+            </div>
+            <div class="field">
+              <label for="f-line1" data-i18n="fLine1">Street address</label>
+              <input id="f-line1" name="line1" autocomplete="address-line1" required aria-describedby="f-line1-err">
+              <small id="f-line1-err" class="error" hidden></small>
+            </div>
+            <div class="field">
+              <label for="f-line2"><span data-i18n="fLine2">Apt, suite, unit</span> <em data-i18n="optional">(optional)</em></label>
+              <input id="f-line2" name="line2" autocomplete="address-line2">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-city" data-i18n="fCity">City</label>
+                <input id="f-city" name="city" autocomplete="address-level2" required aria-describedby="f-city-err">
+                <small id="f-city-err" class="error" hidden></small>
+              </div>
+              <div class="field field--short">
+                <label for="f-state" data-i18n="fState">State</label>
+                <input id="f-state" name="state" autocomplete="address-level1" required aria-describedby="f-state-err">
+                <small id="f-state-err" class="error" hidden></small>
+              </div>
+              <div class="field field--short">
+                <label for="f-zip" data-i18n="fZip">ZIP</label>
+                <input id="f-zip" name="zip" autocomplete="postal-code" inputmode="numeric" required aria-describedby="f-zip-err">
+                <small id="f-zip-err" class="error" hidden></small>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-country" data-i18n="fCountry">Country</label>
+              <input id="f-country" name="country" autocomplete="country-name" value="United States">
+            </div>
+            <div class="field">
+              <label for="f-email"><span data-i18n="fEmail">Email</span> <em data-i18n="optional">(optional)</em></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="f-email-err">
+              <small id="f-email-err" class="error" hidden></small>
+            </div>
+            <div class="field">
+              <label for="f-phone"><span data-i18n="fPhone">Phone</span> <em data-i18n="optional">(optional)</em></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <button class="btn btn--fill btn--wide" id="address-submit" type="submit" data-i18n="fSubmit">Send my address</button>
+            <p class="form-status" id="address-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <p class="address__thanks" id="address-thanks" tabindex="-1" hidden data-i18n="fThanks">Thank you! Your invitation will find its way to you.</p>
+        </section>
       </div>
     </article>
 
