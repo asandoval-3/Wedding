@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Jacqueline & Alejandro//Save the Date//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:alejandro-jacqueline-wedding-20270904@asandoval-3.github.io
+DTSTAMP:20260924T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Jacqueline & Alejandro's Wedding
+LOCATION:Albuquerque\, New Mexico
+DESCRIPTION:Save the date! Formal invitation to follow. https://asandoval-3.github.io/Wedding/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
