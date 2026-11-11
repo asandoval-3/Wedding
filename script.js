@@ -3,7 +3,7 @@
   // No ceremony time yet, so the countdown runs to the start of the day.
   // When you know the time, change "00:00" below (e.g. "16:30").
   var WEDDING = new Date('2027-09-04T00:00:00-06:00');
-  var SITE_URL = 'https://asandoval-3.github.io/Wedding/';
+  var SITE_URL = 'https://alejandrolovesjacqueline2027.wedding/';
 
   // Mailing-address form -> Google Form.
   // Paste your Google Form's "formResponse" address and each question's entry number here.
