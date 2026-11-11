@@ -65,15 +65,75 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* ---------- Sunset sky, Sandia Mountains, balloons ---------- */
 :root { --mtn-h: max(140px, 100vw * 210 / 1320); } /* matches the drawing's shape so the ridge and moon are never cropped */
 
-/* Deep sage overhead, warming to terracotta and dusty rose at the horizon.
-   Text sits in the upper part of the screen, where white stays above 4.5:1. */
+/* Night falling over Albuquerque: deep sage-black overhead, with the last
+   terracotta and dusty-rose glow at the horizon. Text sits in the dark upper
+   part of the screen, where white stays well above 4.5:1. */
 .sky {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(to bottom,
-    #4F5E45 0%, #5F6F52 55%, #7A7358 66%, #B98A74 80%, #D19C8C 92%, #DDA99B 100%);
+    #1F2A22 0%, #2F3D30 38%, #4F5E45 60%, #8A6F58 78%, #C68F7C 92%, #DDA99B 100%);
+}
+
+/* Stars (placed by script.js) twinkle in the dark part of the sky */
+.stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.stars i {
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: var(--ivory);
+  box-shadow: 0 0 calc(var(--s) * 2) rgba(251,247,239,.65);
+  animation: twinkle 3.6s ease-in-out infinite;
+}
+@keyframes twinkle { 50% { opacity: .2; } }
+
+/* A shooting star crosses the sky every so often */
+.shooting-star {
+  position: fixed;
+  left: 8%;
+  top: 12%;
+  width: 90px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(251,247,239,0), var(--ivory));
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: shoot 11s ease-in 3s infinite;
+}
+@keyframes shoot {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(18deg); }
+  2%   { opacity: .9; }
+  9%   { opacity: 0; transform: translate(34vw, 11vw) rotate(18deg); }
+  100% { opacity: 0; transform: translate(34vw, 11vw) rotate(18deg); }
+}
+
+/* Luminarias (placed by script.js) along the foothills */
+.luminarias { position: fixed; left: 0; right: 0; bottom: 0; height: 48px; z-index: 0; pointer-events: none; }
+.luminarias b {
+  position: absolute;
+  width: 7px;
+  height: 9px;
+  border-radius: 1px 1px 0 0;
+  background: linear-gradient(#F6E3B4, #E9B96A);
+  box-shadow: 0 0 10px 4px rgba(242,201,121,.5), 0 0 22px 8px rgba(233,185,106,.25);
+  animation: flicker 2.8s ease-in-out infinite;
+}
+@keyframes flicker { 50% { opacity: .78; } }
+@media (min-width: 900px) { .luminarias b { width: 10px; height: 13px; } }
+
+/* Petals (created by script.js when the envelope opens) */
+.petals { position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.petals i {
+  position: absolute;
+  width: 11px;
+  height: 16px;
+  border-radius: 80% 10% 80% 10%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  will-change: transform, opacity;
 }
 
 .mountains {
@@ -318,6 +378,27 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .names span { color: var(--terracotta); font-size: .62em; }
 
+/* A band of gold sweeps across the names every few seconds */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .names {
+    padding: 0 .12em .14em;
+    margin-bottom: -.14em;
+    background: linear-gradient(100deg,
+      var(--sage-dark) 0%, var(--sage-dark) 46%, #B99A5B 48.5%, #E8D3A0 50%, #B99A5B 51.5%, var(--sage-dark) 54%, var(--sage-dark) 100%)
+      100% 0 / 300% 100% no-repeat;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 7s ease-in-out 1.2s infinite;
+  }
+  .names span { -webkit-text-fill-color: var(--terracotta); }
+}
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  45%  { background-position: 0 0; }
+  100% { background-position: 0 0; }
+}
+
 .tagline { font-style: italic; font-size: 21px; margin-top: 2px; }
 
 .date {
@@ -349,12 +430,45 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .countdown {
   display: flex;
   justify-content: center;
-  gap: clamp(14px, 5vw, 28px);
+  gap: clamp(6px, 2vw, 10px);
   margin: 14px 0 32px;
-  color: var(--sage-dark);
+  perspective: 400px;
 }
-.countdown div { min-width: 48px; }
-.countdown span { display: block; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+/* Flip-clock tiles */
+.countdown div {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 68px;
+  position: relative;
+  padding: 10px 2px 8px;
+  border-radius: 8px;
+  background: linear-gradient(var(--sage-dark) 0 49%, #4F5E45 51% 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,.18);
+  color: var(--champagne);
+}
+.countdown div::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 9px);
+  height: 1px;
+  background: rgba(0,0,0,.22);
+}
+.countdown span {
+  display: block;
+  font-size: clamp(28px, 8.4vw, 36px);
+  line-height: 1;
+  color: var(--ivory);
+  font-variant-numeric: tabular-nums;
+  transform-origin: 50% 60%;
+  backface-visibility: hidden;
+}
+.countdown span.flip { animation: flip .45s cubic-bezier(.3,.7,.3,1); }
+@keyframes flip {
+  0%   { transform: rotateX(-88deg); opacity: .2; }
+  100% { transform: rotateX(0); opacity: 1; }
+}
 .countdown small {
   display: block;
   margin-top: 6px;

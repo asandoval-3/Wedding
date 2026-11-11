@@ -1,4 +1,4 @@
-# Alejandro & Jacqueline · Save the Date
+# Jacqueline & Alejandro · Save the Date
 
 Save-the-date website for our wedding on **Saturday, September 4, 2027** in **Albuquerque, New Mexico**. Designed and built by **Alejandro Sandoval**.
 
@@ -18,13 +18,14 @@ Live site (once GitHub Pages is on): https://asandoval-3.github.io/Wedding/
 
 ## Design decisions (so far)
 
-- **Design:** "Envelope & Wax Seal". Sunset-sky background, champagne envelope, terracotta wax seal with "A&J".
-- **Sandia Mountains at sunset:** the sky fades from deep sage overhead to terracotta and dusty rose at the horizon, with the Sandia ridge in sage silhouette and a champagne moon rising over the crest. A small ridge line also divides the card.
+- **Design:** "Envelope & Wax Seal". Night-sky background, champagne envelope, terracotta wax seal with "J&A". Petals burst out when the envelope opens.
+- **Card touches:** a band of gold sweeps across the names every few seconds, and the countdown is a set of flip-clock tiles.
+- **Sandia Mountains at nightfall:** the sky fades from deep sage-black overhead to a last terracotta and dusty-rose glow at the horizon, with the Sandia ridge in sage silhouette and a champagne moon rising over the crest. Stars twinkle, a shooting star crosses now and then, and luminarias glow along the foothills. A small ridge line also divides the card.
 - **Balloon Fiesta:** four small hot air balloons in terracotta, dusty rose, champagne and sage float gently around the envelope.
 - **Palette:** mostly sage `#8A9A7B` / `#5F6F52` and terracotta `#AD5433`, with dusty rose `#D4A09A`, champagne `#EAD9B8`, and ivory `#FBF7EF` as accents.
 - **Accessibility:** text contrast ≥ 4.5:1, 44px tap targets, visible keyboard focus, reduced-motion support.
 - **Fonts (Google Fonts):** Pinyon Script (names), Cormorant Garamond (body), Jost (small caps labels).
-- **Name order:** Alejandro & Jacqueline.
+- **Name order:** Jacqueline & Alejandro (bride first).
 - **Language:** English + Spanish. Auto-picks Spanish if the guest's phone is set to Spanish; the EN · ES button switches.
 - **Ceremony time:** not decided yet. Calendar event is **all-day**, and the countdown runs to midnight on Sept 4.
 - **Wording:** "Save the Date / Reserva la Fecha", "are getting married / ¡nos casamos!", "Formal invitation to follow / La invitación formal llegará pronto".
